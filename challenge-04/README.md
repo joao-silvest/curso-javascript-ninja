@@ -92,7 +92,7 @@ Crie um método chamado `obterMarcaModelo`, que retorne:
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
 carro.obterMarcaModelo = function() {
-    return "Esse carro é um " + carro.obterMarca() + '' + carro.obterModelo();
+    return "Esse carro é um " + carro.obterMarca() + ' ' + carro.obterModelo();
 }
 
 /*
@@ -114,10 +114,10 @@ citado acima, no lugar de "pessoas".
 carro.adcPessoa = function(pessoas) {
     if(carro.quantidadePessoas>=5) {
         return "O carro já está lotado!";
-    } else if(pessoas == 1 && pessoas + carro.quantidadePessoas > 5) {
-        return "Só cabe mais " + (5 - carro.quantidadePessoas) + " pessoa!";
-    } else if(pessoas + carro.quantidadePessoas > 5) {
-        return "Só cabem mais " + (5 - carro.quantidadePessoas) + " pessoas!";
+    } else if(pessoas == 1 && pessoas + carro.quantidadePessoas > carro.assentos) {
+        return "Só cabe mais " + (carro.assentos - carro.quantidadePessoas) + " pessoa!";
+    } else if(pessoas + carro.quantidadePessoas > carro.assentos) {
+        return "Só cabem mais " + (carro.assentos - carro.quantidadePessoas) + " pessoas!";
     } else {
         carro.quantidadePessoas += pessoas;
         return "Já temos " + carro.quantidadePessoas + " pessoas no carro!";
