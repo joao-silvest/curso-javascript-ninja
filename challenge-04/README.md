@@ -112,10 +112,16 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.adcPessoa = function(pessoas) {
-    if(carro.quantidadePessoas>=5) {
+
+    var totalPessoas = pessoas + carro.quantidadePessoas;
+
+    if(carro.quantidadePessoas>=carro.assentos) {
         return "O carro já está lotado!";
-    } else if(pessoas == 1 && pessoas + carro.quantidadePessoas > carro.assentos) {
-        return "Só cabe mais " + (carro.assentos - carro.quantidadePessoas) + " pessoa!";
+    } else if( totalPessoas > carro.assentos) {
+        var quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
+        var pluralOuSingular = quantasPessoasCabem === 1 ? ' pessoa ' : ' pessoas '
+
+        return "Só cabem mais " + quantasPessoasCabem + pluralOuSingular + '!';
     } else if(pessoas + carro.quantidadePessoas > carro.assentos) {
         return "Só cabem mais " + (carro.assentos - carro.quantidadePessoas) + " pessoas!";
     } else {
